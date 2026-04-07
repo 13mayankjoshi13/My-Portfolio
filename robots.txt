@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://mayank-joshi-portfolio.vercel.app/sitemap.xml
