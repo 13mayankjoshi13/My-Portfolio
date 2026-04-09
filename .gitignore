@@ -1,0 +1,51 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+.directory
+*.orig
+
+# IDE / Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+
+# Temporary files
+*.log
+*.tmp
+*.temp
+
+# Environment / Config (if you add any)
+.env
+.env.local
+.env.*.local
+
+# Node modules (if you ever add any)
+node_modules/
+package-lock.json
+yarn.lock
+
+# Build outputs
+dist/
+build/
+out/
+
+# Backup files
+*.bak
+*.backup
+
+
+
+# Resume file (if it contains personal info you don't want public - OPTIONAL)
+# resume.pdf
