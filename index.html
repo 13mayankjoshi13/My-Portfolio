@@ -511,6 +511,105 @@ footer { padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem; alig
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: var(--border-light); }
 ::-webkit-scrollbar-thumb { background: var(--text-muted); border-radius: 4px; }
+
+/* All Repositories Grid */
+.allrepos-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1px;
+  background: var(--border-light);
+  padding: 0 0 1px 0;
+}
+.repo-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.2rem 1.5rem;
+  background: var(--bg-surface);
+  transition: background var(--t);
+  text-decoration: none;
+  color: inherit;
+}
+.repo-card:hover { background: var(--bg-elevated); }
+.repo-card-top {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.repo-name {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--accent);
+  letter-spacing: 0.04em;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.repo-arrow {
+  font-size: 14px;
+  color: var(--accent);
+  opacity: 0.6;
+  flex-shrink: 0;
+  transition: transform var(--t), opacity var(--t);
+}
+.repo-card:hover .repo-arrow { transform: translateX(3px); opacity: 1; }
+.repo-fork {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: 0.12em;
+  padding: 2px 6px;
+  background: var(--bg-accent);
+  color: var(--text-muted);
+  border-radius: 40px;
+  flex-shrink: 0;
+}
+.repo-desc {
+  font-size: 12px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+.repo-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-top: 2px;
+}
+.repo-lang {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: 0.14em;
+  padding: 2px 7px;
+  border-radius: 40px;
+  font-weight: 500;
+}
+.lang-python { background: #dcfce7; color: #166534; }
+.lang-html { background: #fef3c7; color: #92400e; }
+.lang-nb { background: #ede9fe; color: #5b21b6; }
+.lang-other { background: var(--accent-soft); color: var(--accent); }
+body.dark .lang-python { background: #14532d; color: #86efac; }
+body.dark .lang-html { background: #451a03; color: #fcd34d; }
+body.dark .lang-nb { background: #2e1065; color: #c4b5fd; }
+.repo-date {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+}
+
+@media (min-width: 480px) {
+  .allrepos-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 768px) {
+  .allrepos-grid { grid-template-columns: repeat(3, 1fr); }
+  .repo-card { padding: 1.5rem 2rem; }
+}
+@media (min-width: 1024px) {
+  .allrepos-grid { grid-template-columns: repeat(4, 1fr); }
+}
 </style>
 </head>
 <body>
@@ -522,6 +621,7 @@ footer { padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem; alig
     <li><a href="#skills">Skills</a></li>
     <li><a href="#experience">Work</a></li>
     <li><a href="#projects">Projects</a></li>
+    <li><a href="#all-repos">Repos</a></li>
     <li><a href="#hackathons">Hackathons</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -545,6 +645,7 @@ footer { padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem; alig
   <a href="#skills" class="mm-link">Skills</a>
   <a href="#experience" class="mm-link">Work</a>
   <a href="#projects" class="mm-link">Projects</a>
+  <a href="#all-repos" class="mm-link">Repos</a>
   <a href="#hackathons" class="mm-link">Hackathons</a>
   <a href="#contact" class="mm-link">Contact</a>
   <div class="mobile-theme" style="display: flex; align-items: center; gap: 12px; margin-top: 1rem; padding: 10px 20px; background: var(--bg-elevated); border-radius: 40px;">
@@ -655,12 +756,82 @@ footer { padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem; alig
 <section id="projects">
   <div class="section-head reveal"><span class="section-num">03</span><h2 class="section-title">Featured Work</h2></div>
   <div class="projects-grid">
-    <div class="project-card reveal"><div class="project-num">001</div><h3 class="project-title">Poshan Pahad AI</h3><p class="project-desc">Generative AI assistant providing hyper-localized nutritional guidance using LangChain.</p><div class="project-tags"><span class="project-tag">GenAI</span><span class="project-tag">LangChain</span></div><a href="#" class="project-arrow">↗</a></div>
-    <div class="project-card reveal"><div class="project-num">002</div><h3 class="project-title">Climate Scope</h3><p class="project-desc">Interactive analytics dashboard with real-time climate anomaly detection.</p><div class="project-tags"><span class="project-tag">Streamlit</span><span class="project-tag">BigQuery</span></div><a href="#" class="project-arrow">↗</a></div>
-    <div class="project-card reveal"><div class="project-num">003</div><h3 class="project-title">Jarvis AI</h3><p class="project-desc">Intelligent voice assistant powered by Gemini API with contextual conversation.</p><div class="project-tags"><span class="project-tag">Gemini API</span><span class="project-tag">NLP</span></div><a href="#" class="project-arrow">↗</a></div>
-    <div class="project-card reveal"><div class="project-num">004</div><h3 class="project-title">Recommender Suite</h3><p class="project-desc">Hybrid recommendation engine for personalized media suggestions.</p><div class="project-tags"><span class="project-tag">Scikit-Learn</span><span class="project-tag">Pandas</span></div><a href="#" class="project-arrow">↗</a></div>
-    <div class="project-card reveal"><div class="project-num">005</div><h3 class="project-title">CertiSort</h3><p class="project-desc">AI document organizer using OCR and text classification.</p><div class="project-tags"><span class="project-tag">OCR</span><span class="project-tag">Transformers</span></div><a href="#" class="project-arrow">↗</a></div>
-    <div class="project-card reveal"><div class="project-num">006</div><h3 class="project-title">Library Manager</h3><p class="project-desc">Full-stack inventory system with secure authentication.</p><div class="project-tags"><span class="project-tag">Flask</span><span class="project-tag">React</span></div><a href="#" class="project-arrow">↗</a></div>
+    <div class="project-card reveal"><div class="project-num">001</div><h3 class="project-title">Advanced Gesture Fighting Game</h3><p class="project-desc">Real-time gesture-controlled fighting game using computer vision and hand tracking. Players control fighters through physical gestures captured via webcam.</p><div class="project-tags"><span class="project-tag">Python</span><span class="project-tag">OpenCV</span><span class="project-tag">MediaPipe</span><span class="project-tag">CV</span></div><a href="https://github.com/13mayankjoshi13/advanced_gesture_fighting_game" target="_blank" class="project-arrow">↗</a></div>
+    <div class="project-card reveal"><div class="project-num">002</div><h3 class="project-title">IPL 2024 Analytics ML/DL</h3><p class="project-desc">Deep data analysis of IPL 2024 — player performances, team trends, and match predictions using ML and DL models with rich visualizations.</p><div class="project-tags"><span class="project-tag">Jupyter</span><span class="project-tag">Scikit-Learn</span><span class="project-tag">TensorFlow</span><span class="project-tag">Pandas</span></div><a href="https://github.com/13mayankjoshi13/IPL-2024-Data-Analytics-ML-DL-Model" target="_blank" class="project-arrow">↗</a></div>
+    <div class="project-card reveal"><div class="project-num">003</div><h3 class="project-title">ET Context Lens — Multiagent</h3><p class="project-desc">Multiagent system built for contextual understanding and reasoning, leveraging multiple AI agents for complex task decomposition and execution.</p><div class="project-tags"><span class="project-tag">Multiagent</span><span class="project-tag">LangGraph</span><span class="project-tag">HTML</span></div><a href="https://github.com/13mayankjoshi13/ET-Context-Lens--Multiagent-system" target="_blank" class="project-arrow">↗</a></div>
+    <div class="project-card reveal"><div class="project-num">004</div><h3 class="project-title">UPI Fraud Detection</h3><p class="project-desc">Machine learning pipeline to detect fraudulent UPI transactions in real time, using anomaly detection and classification models on transaction data.</p><div class="project-tags"><span class="project-tag">Python</span><span class="project-tag">Scikit-Learn</span><span class="project-tag">Fraud Detection</span></div><a href="https://github.com/13mayankjoshi13/UPI_FRAUD_DETECTION" target="_blank" class="project-arrow">↗</a></div>
+    <div class="project-card reveal"><div class="project-num">005</div><h3 class="project-title">E-Commerce Price Comparison</h3><p class="project-desc">Automated web scraping and price comparison tool across multiple e-commerce platforms, helping users find the best deals in real time.</p><div class="project-tags"><span class="project-tag">Python</span><span class="project-tag">BeautifulSoup</span><span class="project-tag">Scraping</span></div><a href="https://github.com/13mayankjoshi13/E-Commerce_Price_Comparison" target="_blank" class="project-arrow">↗</a></div>
+    <div class="project-card reveal"><div class="project-num">006</div><h3 class="project-title">Gesture Game Web (Flask)</h3><p class="project-desc">Web deployment of the gesture-controlled boxing game using Flask, enabling browser-based access to the real-time gesture recognition system.</p><div class="project-tags"><span class="project-tag">Python</span><span class="project-tag">Flask</span><span class="project-tag">Web</span><span class="project-tag">CV</span></div><a href="https://github.com/13mayankjoshi13/gesture_game_web" target="_blank" class="project-arrow">↗</a></div>
+  </div>
+</section>
+
+<!-- ALL REPOSITORIES -->
+<section id="all-repos">
+  <div class="section-head reveal"><span class="section-num">03.5</span><h2 class="section-title">All Repositories</h2></div>
+  <div class="allrepos-grid">
+    <a href="https://github.com/13mayankjoshi13/advanced_gesture_fighting_game" target="_blank" class="repo-card reveal">
+      <div class="repo-card-top"><span class="repo-name">advanced_gesture_fighting_game</span><span class="repo-arrow">↗</span></div>
+      <p class="repo-desc">Gesture-controlled fighting game using computer vision and hand tracking</p>
+      <div class="repo-meta"><span class="repo-lang lang-python">Python</span><span class="repo-date">May 2025</span></div>
+    </a>
+    <a href="https://github.com/13mayankjoshi13/gesture_game_web" target="_blank" class="repo-card reveal">
+      <div class="repo-card-top"><span class="repo-name">gesture_game_web</span><span class="repo-arrow">↗</span></div>
+      <p class="repo-desc">Web deployment of the boxing game using Flask</p>
+      <div class="repo-meta"><span class="repo-lang lang-python">Python</span><span class="repo-date">May 2025</span></div>
+    </a>
+    <a href="https://github.com/13mayankjoshi13/Assistive_Glove_Device" target="_blank" class="repo-card reveal">
+      <div class="repo-card-top"><span class="repo-name">Assistive_Glove_Device</span><span class="repo-arrow">↗</span></div>
+      <p class="repo-desc">Assistive glove device project for accessibility</p>
+      <div class="repo-meta"><span class="repo-lang lang-other">Hardware</span><span class="repo-date">May 2025</span></div>
+    </a>
+    <a href="https://github.com/13mayankjoshi13/IPL-2024-Data-Analytics-ML-DL-Model" target="_blank" class="repo-card reveal">
+      <div class="repo-card-top"><span class="repo-name">IPL-2024-Data-Analytics-ML-DL</span><span class="repo-arrow">↗</span></div>
+      <p class="repo-desc">IPL 2024 player analytics with ML/DL predictive models</p>
+      <div class="repo-meta"><span class="repo-lang lang-nb">Jupyter</span><span class="repo-date">Mar 2025</span></div>
+    </a>
+    <a href="https://github.com/13mayankjoshi13/anime_recommendation" target="_blank" class="repo-card reveal">
+      <div class="repo-card-top"><span class="repo-name">anime_recommendation</span><span class="repo-fork">fork</span><span class="repo-arrow">↗</span></div>
+      <p class="repo-desc">Anime recommendation engine</p>
+      <div class="repo-meta"><span class="repo-lang lang-other">Python</span><span class="repo-date">Jun 2025</span></div>
+    </a>
+    <a href="https://github.com/13mayankjoshi13/UPI_FRAUD_DETECTION" target="_blank" class="repo-card reveal">
+      <div class="repo-card-top"><span class="repo-name">UPI_FRAUD_DETECTION</span><span class="repo-arrow">↗</span></div>
+      <p class="repo-desc">UPI transaction fraud detection using ML classifiers</p>
+      <div class="repo-meta"><span class="repo-lang lang-python">Python</span><span class="repo-date">Aug 2025</span></div>
+    </a>
+    <a href="https://github.com/13mayankjoshi13/E-Commerce_Price_Comparison" target="_blank" class="repo-card reveal">
+      <div class="repo-card-top"><span class="repo-name">E-Commerce_Price_Comparison</span><span class="repo-arrow">↗</span></div>
+      <p class="repo-desc">Scrapes and compares prices across e-commerce platforms</p>
+      <div class="repo-meta"><span class="repo-lang lang-python">Python</span><span class="repo-date">Dec 2025</span></div>
+    </a>
+    <a href="https://github.com/13mayankjoshi13/HTML-course" target="_blank" class="repo-card reveal">
+      <div class="repo-card-top"><span class="repo-name">HTML-course</span><span class="repo-arrow">↗</span></div>
+      <p class="repo-desc">Full HTML course resources — Code With Harry</p>
+      <div class="repo-meta"><span class="repo-lang lang-html">HTML</span><span class="repo-date">Feb 2026</span></div>
+    </a>
+    <a href="https://github.com/13mayankjoshi13/Poshan-Pahad" target="_blank" class="repo-card reveal">
+      <div class="repo-card-top"><span class="repo-name">Poshan-Pahad</span><span class="repo-fork">fork</span><span class="repo-arrow">↗</span></div>
+      <p class="repo-desc">AI-powered nutritional guidance for rural communities</p>
+      <div class="repo-meta"><span class="repo-lang lang-other">GenAI</span><span class="repo-date">Mar 2026</span></div>
+    </a>
+    <a href="https://github.com/13mayankjoshi13/ET-Context-Lens--Multiagent-system" target="_blank" class="repo-card reveal">
+      <div class="repo-card-top"><span class="repo-name">ET-Context-Lens--Multiagent</span><span class="repo-arrow">↗</span></div>
+      <p class="repo-desc">Multiagent system for contextual reasoning and task execution</p>
+      <div class="repo-meta"><span class="repo-lang lang-html">HTML</span><span class="repo-date">Mar 2026</span></div>
+    </a>
+    <a href="https://github.com/13mayankjoshi13/Personal_Portfolio_Website" target="_blank" class="repo-card reveal">
+      <div class="repo-card-top"><span class="repo-name">Personal_Portfolio_Website</span><span class="repo-arrow">↗</span></div>
+      <p class="repo-desc">Earlier personal portfolio website</p>
+      <div class="repo-meta"><span class="repo-lang lang-html">HTML</span><span class="repo-date">Jun 2025</span></div>
+    </a>
+    <a href="https://github.com/13mayankjoshi13/My-Portfolio" target="_blank" class="repo-card reveal">
+      <div class="repo-card-top"><span class="repo-name">My-Portfolio</span><span class="repo-arrow">↗</span></div>
+      <p class="repo-desc">Latest portfolio — live on Vercel</p>
+      <div class="repo-meta"><span class="repo-lang lang-html">HTML</span><span class="repo-date">Apr 2026</span></div>
+    </a>
+  </div>
+  <div style="text-align:center;padding:1.5rem 1rem 2rem;">
+    <a href="https://github.com/13mayankjoshi13?tab=repositories" target="_blank" class="btn-ghost" style="display:inline-flex;">View all on GitHub ↗</a>
   </div>
 </section>
 
@@ -692,7 +863,7 @@ footer { padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem; alig
       <h2 class="contact-headline">Let's <strong>collaborate</strong></h2>
       <p class="contact-sub">Open for research collaborations, engineering roles, and impactful AI projects.</p>
       <div class="contact-info-list">
-        <div><div class="ci-label">Email</div><div class="ci-val">mayankjoshi640@gmail.com</div></div>
+        <div><div class="ci-label">Email</div><div class="ci-val"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="5a373b233b343130352932336c6e6a1a3d373b333674393537">[email&#160;protected]</a></div></div>
         <div><div class="ci-label">Location</div><div class="ci-val">Uttarakhand, India (Remote/on-site)</div></div>
         <div><div class="ci-label">Status</div><div class="ci-val available">Actively seeking opportunities</div></div>
       </div>
@@ -741,7 +912,7 @@ footer { padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem; alig
   <img class="modal-content" id="modalImage">
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // Certificate Modal functions
 function openCertificateModal(imagePath) {
   const modal = document.getElementById('certModal');
@@ -914,15 +1085,13 @@ function buildDistinctMarquee() {
       track.appendChild(card);
       
       const spacer = document.createElement('span');
-      spacer.style.width = '0.5rem';
-      spacer.style.display = 'inline-block';
+      spacer.style.cssText = 'display:inline-block;width:2rem;flex-shrink:0;';
       track.appendChild(spacer);
     });
   }
 }
 
-// Build the marquee when page loads
-buildDistinctMarquee();
+document.addEventListener('DOMContentLoaded', buildDistinctMarquee);
 </script>
 </body>
 </html>
